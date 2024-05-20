@@ -1,6 +1,5 @@
 import { ArBaseControls } from "./ArBaseControls";
 import { Matrix4, Object3D } from "three";
-import Worker from "worker-loader?inline=no-fallback!./Worker";
 import { setParameters } from "./common-functions/utilityFunctions";
 import { IArMarkerControls, IArMarkerControlsParameters, IArToolkitContext } from "./CommonInterfaces/THREEx-interfaces";
 import jsartoolkit from "@ar-js-org/artoolkit5-js";
@@ -350,7 +349,7 @@ export class ArMarkerControls extends ArBaseControls implements IArMarkerControl
         }
 
         function handleNFT(descriptorsUrl: any, arController: { canvas: { style: { clientWidth: string; clientHeight: string; }; width: number; height: number; getContext: (arg0: string) => any; }; cameraParam: any; }) {
-            var worker = new Worker();
+            var worker = new Worker(new URL('worker-loader.d.ts'));
 
             window.addEventListener("arjs-video-loaded", function (ev: any) {
                 var video = ev.detail.component;
