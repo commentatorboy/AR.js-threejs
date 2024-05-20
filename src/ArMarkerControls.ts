@@ -349,7 +349,7 @@ export class ArMarkerControls extends ArBaseControls implements IArMarkerControl
         }
 
         function handleNFT(descriptorsUrl: any, arController: { canvas: { style: { clientWidth: string; clientHeight: string; }; width: number; height: number; getContext: (arg0: string) => any; }; cameraParam: any; }) {
-            var worker = new Worker(new URL('worker-loader.d.ts'));
+            var worker = new Worker(new URL('Worker.ts', import.meta.url));
 
             window.addEventListener("arjs-video-loaded", function (ev: any) {
                 var video = ev.detail.component;
